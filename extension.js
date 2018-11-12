@@ -13,14 +13,26 @@ function activate(context) {
     // The command has been defined in the package.json file
     // Now provide the implementation of the command with  registerCommand
     // The commandId parameter must match the command field in package.json
-    let disposable = vscode.commands.registerCommand('extension.sayHello', function () {
+    let disposable = vscode.commands.registerCommand('extension.sayHello', async function() {
         // The code you place here will be executed every time your command is executed
 
-        // Display a message box to the user
-        vscode.window.showInformationMessage('Hello World!');
+        let editor = vscode.window.activeTextEditor;
+        let fileName = editor.document.fileName;
+
+        const doc = await vscode.workspace.openTextDocument(convertPath(fileName));
+        vscode.window.showTextDocument(doc, -1);
     });
 
     context.subscriptions.push(disposable);
+
+    function convertPath(path) {
+        // FIXME more correct
+        if (path.indexOf("spec/") >= 0) {
+            return path.replace(/_spec\.rb$/, ".rb").replace("spec/", "app/");
+        }
+        return path.replace(/\.rb$/, "_spec.rb").replace("app/", "spec/");
+    }
+
 }
 exports.activate = activate;
 
