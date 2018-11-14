@@ -20,6 +20,12 @@
                 "command": "extension.sayHello",
                 "title": "Hello World"
             }
+        ],
+        "keybindings": [
+            {
+                "key": "cmd+9",
+                "command": "extension.sayHello"
+            }
         ]
     },
     "scripts": {
