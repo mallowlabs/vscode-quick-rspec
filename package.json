@@ -23,7 +23,8 @@
         ],
         "keybindings": [
             {
-                "key": "cmd+9",
+                "mac": "cmd+9",
+                "key": "ctrl+9",
                 "command": "extension.sayHello"
             }
         ]
