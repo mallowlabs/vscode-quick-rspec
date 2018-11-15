@@ -25,6 +25,14 @@ function activate(context) {
 
     context.subscriptions.push(disposable);
 
+    let disposable2 = vscode.commands.registerCommand('extension.runSpec', function() {
+        let terminal = vscode.window.createTerminal("rspec");
+        terminal.show(true);
+        terminal.sendText("ls -l");
+    });
+
+    context.subscriptions.push(disposable2);
+
     function convertPath(path) {
         // FIXME more correct
         if (path.indexOf("spec/") >= 0) {
