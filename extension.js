@@ -29,7 +29,8 @@ function activate(context) {
         let terminal = vscode.window.createTerminal("rspec");
         terminal.show(true);
         let path = vscode.window.activeTextEditor.document.fileName.replace(vscode.workspace.rootPath + '/', '');
-        terminal.sendText("bundle exec rspec " + path);
+        let line = vscode.window.activeTextEditor.selection.active.line + 1;
+        terminal.sendText("bundle exec rspec " + path + ":" + line);
     });
 
     context.subscriptions.push(disposable2);
