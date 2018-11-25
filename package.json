@@ -31,6 +31,11 @@
                 "mac": "cmd+9",
                 "key": "ctrl+9",
                 "command": "extension.sayHello"
+            },
+            {
+                "mac": "cmd+0",
+                "key": "ctrl+0",
+                "command": "extension.runSpec"
             }
         ]
     },
