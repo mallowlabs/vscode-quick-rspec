@@ -2,6 +2,8 @@
 
 A VSCode extension that switch ruby files and spec files with shortcut key.
 
+![vscode-quick-rspec.gif](./images/vscode-quick-rspec.gif)
+
 ## Features
 
 Available commands:
