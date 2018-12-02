@@ -11,15 +11,15 @@
         "Other"
     ],
     "activationEvents": [
-        "onCommand:extension.sayHello",
+        "onCommand:extension.toggleSpec",
         "onCommand:extension.runSpec"
     ],
     "main": "./extension",
     "contributes": {
         "commands": [
             {
-                "command": "extension.sayHello",
-                "title": "Hello World"
+                "command": "extension.toggleSpec",
+                "title": "Toggle Spec"
             },
             {
                 "command": "extension.runSpec",
@@ -30,7 +30,7 @@
             {
                 "mac": "cmd+9",
                 "key": "ctrl+9",
-                "command": "extension.sayHello"
+                "command": "extension.toggleSpec"
             },
             {
                 "mac": "cmd+0",
