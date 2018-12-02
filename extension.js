@@ -2,6 +2,27 @@
 // Import the module and reference it with the alias vscode in your code below
 const vscode = require('vscode');
 
+let activeTerminals = {};
+
+function getOrCreateTerminal(prefix) {
+    let terminalName = prefix + ' ' +
+      vscode.workspace.getWorkspaceFolder(vscode.window.activeTextEditor.document.uri).name;
+
+    if (activeTerminals[terminalName]) {
+        return activeTerminals[terminalName];
+    } else {
+        const terminal = vscode.window.createTerminal(terminalName);
+        activeTerminals[terminalName] = terminal;
+        return terminal;
+    }
+}
+
+vscode.window.onDidCloseTerminal((terminal) => {
+    if (activeTerminals[terminal.name]) {
+        delete activeTerminals[terminal.name];
+    }
+});
+
 // this method is called when your extension is activated
 // your extension is activated the very first time the command is executed
 function activate(context) {
@@ -26,7 +47,7 @@ function activate(context) {
     context.subscriptions.push(disposable);
 
     let disposable2 = vscode.commands.registerCommand('extension.runSpec', function() {
-        let terminal = vscode.window.createTerminal("rspec");
+        let terminal = getOrCreateTerminal("rspec");
         terminal.show(true);
         let path = vscode.window.activeTextEditor.document.fileName.replace(vscode.workspace.rootPath + '/', '');
         let line = vscode.window.activeTextEditor.selection.active.line + 1;
