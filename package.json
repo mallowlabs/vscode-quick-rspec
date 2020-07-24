@@ -37,7 +37,18 @@
                 "key": "ctrl+0",
                 "command": "extension.runSpec"
             }
-        ]
+        ],
+        "configuration": {
+            "type": "object",
+            "title": "Quick RSpec",
+            "properties": {
+                "quickRspec.commandPrefix": {
+                    "type": "string",
+                    "default": "bundle exec rspec",
+                    "description": "command prefix to execute rspec"
+                }
+            }
+        }
     },
     "scripts": {
         "postinstall": "node ./node_modules/vscode/bin/install",

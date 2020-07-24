@@ -49,9 +49,10 @@ function activate(context) {
     let disposable2 = vscode.commands.registerCommand('extension.runSpec', function() {
         let terminal = getOrCreateTerminal("rspec");
         terminal.show(true);
+        let commandPrefix = vscode.workspace.getConfiguration('quickRspec').get('commandPrefix');
         let path = vscode.window.activeTextEditor.document.fileName.replace(vscode.workspace.rootPath + '/', '');
         let line = vscode.window.activeTextEditor.selection.active.line + 1;
-        terminal.sendText("bundle exec rspec " + path + ":" + line);
+        terminal.sendText(`${commandPrefix} ${path}:${line}`);
     });
 
     context.subscriptions.push(disposable2);
