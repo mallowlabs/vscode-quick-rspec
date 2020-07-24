@@ -35,7 +35,12 @@ Available commands:
 
 ## Extension Settings
 
-No settings are available.
+Available settings
+
+```
+// command prefix to execute rspec
+"quickRspec.commandPrefix": "bundle exec rspec",
+```
 
 ## Installation
 
