@@ -60,7 +60,6 @@
         "@vscode/test-electron": "^2.3.0",
         "braces": ">=2.3.1",
         "diff": ">=3.5.0",
-        "minimist": ">=0.2.1",
         "mocha": "^10.2.0"
     }
 }
