@@ -6,3 +6,5 @@ updates:
       interval: "weekly"
       timezone: "Asia/Tokyo"
       day: "friday"
+    cooldown:
+      default-days: 1
