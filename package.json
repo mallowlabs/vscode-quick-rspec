@@ -54,10 +54,10 @@
         "test": "node ./test/runTest.js"
     },
     "devDependencies": {
-        "@types/mocha": "^10.0.1",
+        "@types/mocha": "^10.0.10",
         "@types/node": "^8.10.25",
         "@types/vscode": "^1.76.0",
         "@vscode/test-electron": "^2.5.2",
-        "mocha": "^10.8.2"
+        "mocha": "^11.7.5"
     }
 }
